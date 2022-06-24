@@ -1,5 +1,6 @@
 from flask import render_template, Blueprint, request
 from json import JSONDecodeError
+import logging
 
 from function import get_posts_by_word
 
@@ -17,7 +18,9 @@ def search_page():
     try:
         posts = get_posts_by_word(search_query)
     except FileNotFoundError:
+        logging.error("File not found")
         return "Файл не найден"
     except JSONDecodeError:
+        logging.error("The file is corrupt or invalid")
         return "Файл повреждён или не валиден"
     return render_template("post_list.html", query=search_query, posts=posts)

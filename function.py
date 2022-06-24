@@ -1,4 +1,4 @@
-import  json
+import json
 
 
 def load_posts():
@@ -18,5 +18,5 @@ def add_post(post):
     posts = load_posts()
     posts.append(post)
     with open("posts.json", "a", encoding="utf-8") as file:
-        json.dump(posts, file)
+        json.dump(posts, file, ensure_ascii=False)
     return post
