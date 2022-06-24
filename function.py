@@ -1,5 +1,6 @@
 import  json
 
+
 def load_posts():
     with open("posts.json", encoding="utf-8") as file:
         return json.load(file)
