@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.register_blueprint(main_blueprint)
 app.register_blueprint(loader_blueprint)
 
-logging.basicConfig(filename="basic.log", level=logging.INFO)
+logging.basicConfig(filename="basic.log", encoding="utf-8", level=logging.INFO)
 
 
 @app.route("/uploads/<path:path>")
